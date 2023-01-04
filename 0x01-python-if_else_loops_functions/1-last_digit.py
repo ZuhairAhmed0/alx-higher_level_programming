@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 import random
 number = random.randint(-10000, 10000)
-digit= str(number)[-1]
+digit= int(str(number)[-1])
 if digit > 5:
     str = f"{digit} and is greater than 5"
 elif digit == 0:
