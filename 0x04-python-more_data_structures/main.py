@@ -1,6 +1,17 @@
 #!/usr/bin/python3
-uniq_add = __import__('2-uniq_add').uniq_add
+update_dictionary = __import__('7-update_dictionary').update_dictionary
+print_sorted_dictionary = __import__('6-print_sorted_dictionary').print_sorted_dictionary
 
-my_list = [1, 2, 3, 1, 4, 2, 5]
-result = uniq_add(my_list)
-print("Result: {:d}".format(result))
+a_dictionary = { 'language': "C", 'number': 89, 'track': "Low level" }
+new_dict = update_dictionary(a_dictionary, 'language', "Python")
+print_sorted_dictionary(new_dict)
+print("--")
+print_sorted_dictionary(a_dictionary)
+
+print("--")
+print("--")
+
+new_dict = update_dictionary(a_dictionary, 'city', "San Francisco")
+print_sorted_dictionary(new_dict)
+print("--")
+print_sorted_dictionary(a_dictionary)
