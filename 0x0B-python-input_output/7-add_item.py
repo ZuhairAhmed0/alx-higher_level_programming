@@ -11,6 +11,6 @@ for i in range(ln):
     my_list[i] = sys.argv[i + 1]
 try:
     my_list = load_from_json_file("add_item.json") + my_list
-except:
+except FileNotFoundError:
     pass
 save_to_json_file(my_list, "add_item.json")
