@@ -11,7 +11,7 @@ if __name__ == "__main__":
     req = urllib.request.Request(sys.argv[1])
 
     try:
-        with urlib.request.urlopen(req) as response:
+        with urllib.request.urlopen(req) as response:
             res = response.read().decode('utf8')
         print(res)
 
