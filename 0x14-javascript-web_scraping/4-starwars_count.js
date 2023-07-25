@@ -9,9 +9,10 @@ const URL = process.argv[2];
 
 request.get(URL, function (err, req, res) {
   if (err) console.error(err);
-	request.get('https://swapi-api.alx-tools.com/api/people/18', function (err, req, res) {
-		if (err) console.error(err);
-		const films = JSON.parse(res).films;
-		console.log(films.length);
-	});
+  const films = JSON.parse(res).results;
+  console.log(films.reduce((count, movie) => {
+    return movie.characters.find((character) => character.endsWith('/18/'))
+      ? count + 1
+      : count;
+  }, 0));
 });
