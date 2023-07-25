@@ -9,15 +9,13 @@ const URL = process.argv[2];
 request.get(URL, function (err, req, res) {
   if (err) console.error(err);
   const todos = JSON.parse(res);
-  const completedTasksByUser = {};
+  const completed = {};
   todos.forEach(todo => {
-    if (todo.completed) {
-      if (completedTasksByUser[todo.userId]) {
-        completedTasksByUser[todo.userId]++;
-      } else {
-        completedTasksByUser[todo.userId] = 1;
-      }
+    if (todo.completed && completed[todo.userId] === undefined) {
+      completed[todo.userId] = 1;
+    } else if (todo.completed) {
+      completed[todo.userId] += 1;
     }
   });
-  console.log(completedTasksByUser);
+  console.log(completed);
 });
