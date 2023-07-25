@@ -9,8 +9,9 @@ const URL = process.argv[2];
 
 request.get(URL, function (err, req, res) {
   if (err) console.error(err);
-  const films = JSON.parse(res).results;
-  const moviesWithWedge = films.filter(film =>
-    film.characters.includes('https://swapi-api.alx-tools.com/api/people/18'));
-  console.log(moviesWithWedge.length);
+	request.get('https://swapi-api.alx-tools.com/api/people/18', function (err, req, res) {
+		if (err) console.error(err);
+		const films = JSON.parse(res).films;
+		console.log(films.length);
+	});
 });
